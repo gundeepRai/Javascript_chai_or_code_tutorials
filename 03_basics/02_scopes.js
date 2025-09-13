@@ -16,7 +16,7 @@
 
 //  ------------------------- vd-22 ---------------------------------
 
-one(); 
+// one(); 
 
 {function one(){
     const username = "Shri ji"
@@ -32,4 +32,24 @@ one();
     two();
 }}
 
-one();
+// one();
+
+// closure in js : A closure in JavaScript is the combination of a function and the lexical environment within which that function was declared. This means that an inner function, defined inside an outer function, retains access to the outer function's variables and scope, even after the outer function has finished executing. 
+
+
+
+//  ******************************* interesting *****************************
+addOne(4); //can call before defining/initialization, perfectly fine
+function addOne(num){
+    return num+1
+}
+addOne(5);
+
+// addTwo(5); calling addTwo expression before defining/initialization gives error
+const addTwo = function(num){
+    return num+2;
+}
+addTwo(5);
+
+// the "addOne" function is simply a function 
+// while the "addTwo" function is known as an "Expression"
