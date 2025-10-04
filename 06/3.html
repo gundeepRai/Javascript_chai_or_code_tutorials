@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai or Code</title>
+</head>
+<body style="background-color: #212121; color: #fff; ">
+    
+</body>
+<script>
+    // creating a html element via js
+    const div = document.createElement('div');
+    console.log(div);
+    // setting attributes to this element
+    div.className = 'main';
+    // div.id = 'myId';
+    div.id = Math.round(Math.random()*10 + 1);
+    div.setAttribute('title', 'generated a title');
+    // console.log(div.title);
+
+    // adding style
+    div.style.backgroundColor = 'green';
+    div.style.padding = "12px";
+
+    // adding text to this div
+    // div.innerText = "This is a div created via JS"; // not recommended as it can lead to xss attack and extra round trips to DOM and ovverriding the prev content
+    // recommended way is to use createTextNode method
+    const addText = document.createTextNode('this is added via createTextNode');
+    div.appendChild(addText);
+
+    // till now div elem is created but not added to the DOM
+    // adding this div to the body of DOM
+    document.body.appendChild(div);
+
+    //  ********************** IMPORTANT BAAT **********************
+    /*
+        Like wrapping above code in a func, we can create html elem, the only thing we need is to pass the classname, id, text content and style or parent etc. to create a dynamic html element
+
+        Even we can write a loop in it or of this function to create multiple html elements at once, where just pass attributes in an array format
+    */
+</script>
+</html>
