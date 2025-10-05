@@ -13,10 +13,10 @@
 <script>
     function addLanguage(lang){
         const li = document.createElement('li');
-        li.innerHTML = lang;
+        li.innerHTML = lang;    // ya li.innerHTML = `${lang}`; bhi likh sakte hain
         document.querySelector('.language').appendChild(li);
     }
-    // addLanguage('Python');
+    addLanguage('Solidity');
 
     // writing optimized code to add lang, as above code traverses the whole DOM tree then adds the element
     function addOptiLanguage(lang){
@@ -28,5 +28,23 @@
     addOptiLanguage('C++');
     addOptiLanguage('Java');
     addOptiLanguage('Ruby');
+
+
+    // editing the existing element
+    const secondLang = document.querySelector("li:nth-child(2)");
+    // secondLang.innerHTML = "Mojo";
+     
+    // another method to edit
+    const newli_needs_to_edited = document.createElement('li');
+    newli_needs_to_edited.textContent = "Mojo";
+    secondLang.replaceWith(newli_needs_to_edited);
+
+    // editing javascript to JS
+    const firstLang = document.querySelector("li:nth-child(1)");
+    // firstLang.outerHTML = "<ol><li>JS</li></ol>"; // outerHTML se pura element hi replace ho jata hai
+
+    // removing an element
+    const lastlang = document.querySelector("li:last-child");
+    lastlang.remove();
 </script>
 </html>
