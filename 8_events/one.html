@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body style="background-color: #414141; color:aliceblue">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="raft" src="https://cdn.pixabay.com/photo/2017/03/27/14/53/canoe-2179196_1280.jpg" alt="raft"></li>
+            <li><img width="200px" id="scene" src="https://cdn.pixabay.com/photo/2017/03/27/15/09/waterfall-2179296_640.jpg" alt="scene"></li>
+            <li><img width="200px" id="road" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR132TBAD0-GhGhN8_2Xr-3obkFd4NzFbk6Hg&s" alt="road"></li>
+            <li><img width="200px" id="jaggu" src="https://images.pexels.com/photos/12428561/pexels-photo-12428561.jpeg?cs=srgb&dl=pexels-iskcontvdhaka-12428561.jpg&fm=jpg" alt="jaggu"></li>
+            <li><a style="color: aliceblue" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    //1. seedha li tag m hi 'onlick' event: non scalable way
+    // 2. way is even outdated (as onclick even gives less funtionality and features)
+    // document.getElementById("jaggu").onclick = function(){
+    //     alert("Radhe Radhe");
+    // };
+
+    // 3. Instead use Event Listener
+    document.getElementById('jaggu').addEventListener('click', function(e){
+        console.log(e);
+        // ************** what is being printed here in console (of event e) is important for placements
+        
+        alert("Shri Radhe Jai Radhe!");
+    }, false);
+    // here click is an event, and false is 3rd argument (imp one)
+
+    // earlier syntaxes, internet explorer had used 'attachEvent()''
+    // jQuery uses 'on()' event listner
+
+
+    // H.w. topics to read on mdn, of addEventListner()
+    // type, timestamp, defaultPrevented
+    //  target, to, srcElement ........ is imp
+    // currentTarget
+    // clientX, clientYm screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode ............
+
+</script>
+
+</html>
