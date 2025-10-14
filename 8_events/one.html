@@ -18,33 +18,6 @@
     </div>
 </body>
 
-<script>
-    //1. seedha li tag m hi 'onlick' event: non scalable way
-    // 2. way is even outdated (as onclick even gives less funtionality and features)
-    // document.getElementById("jaggu").onclick = function(){
-    //     alert("Radhe Radhe");
-    // };
-
-    // 3. Instead use Event Listener
-    document.getElementById('jaggu').addEventListener('click', function(e){
-        console.log(e);
-        // ************** what is being printed here in console (of event e) is important for placements
-        
-        alert("Shri Radhe Jai Radhe!");
-    }, false);
-    // here click is an event, and false is 3rd argument (imp one)
-
-    // earlier syntaxes, internet explorer had used 'attachEvent()''
-    // jQuery uses 'on()' event listner
-
-
-    // H.w. topics to read on mdn, of addEventListner()
-    // type, timestamp, defaultPrevented
-    //  target, to, srcElement ........ is imp
-    // currentTarget
-    // clientX, clientYm screenX, screenY
-    // altkey, ctrlkey, shiftkey, keyCode ............
-
-</script>
+<script src="script.js"></script>
 
 </html>
