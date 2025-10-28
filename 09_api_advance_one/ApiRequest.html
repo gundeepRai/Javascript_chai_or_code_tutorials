@@ -8,7 +8,60 @@
 <body style="background-color: #212121;">
     
 </body>
-<script>
-    const xhr = new XMLHttpRequest();
+<script style="background-color: #212121">
+    // -----++++++ IMP link of documenation ++++++--------
+    // XMLHttpRequest mdn doc = https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
+    
+    const requestUrl = 'https://api.github.com/users/gundeepRai';
+    const xhr = new XMLHttpRequest();   //object
+
+    xhr.open('GET', requestUrl );
+    // console.log(xhr.readyState); // state is printed as 1 but is tracking change only once so use instead
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText);            
+            console.log(data);
+            
+            // now ab data aagya to assignment hitest sr ka dia hua
+            const div = document.createElement('div');
+            //here div is behaving as card
+
+            const btn = document.createElement('button');
+            btn.appendChild(document.createTextNode('Click here to know about'));
+            div.appendChild(btn);
+
+            btn.addEventListener('click', () => {
+                btn.remove();
+
+                // 1. adding image
+                const image = document.createElement('img');
+                image.src = data.avatar_url;
+                image.style.width = '200px';
+                div.appendChild(image);
+
+                // 2. name and follower
+                const cardDes = document.createElement('p');
+                cardDes.innerHTML = `
+                    Name : ${data.name} 
+                    <br>No. of followers : ${data.followers}
+                `;
+                div.appendChild(cardDes);
+            });
+
+            // adding little css to card
+            div.style = `
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 15px;
+                width: 250px;
+                box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+                background-color: #fff;
+            `;
+
+            document.body.appendChild(div);
+        }        
+    }
+    xhr.send(); //now open is called
 </script>
 </html>
