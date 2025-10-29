@@ -1,7 +1,9 @@
+// ========= chai or code (vd-40) ==========
+// ----- "promise 1"
 const promiseOne = new Promise(function(resolve, reject){
     // Do an async task
     // DB calls, cryptography, network
-    // ~IMPORTANT~ : here resolve() and reject() are Promise's constructor function and we just got them and using as our need
+    // ~IMPORTANT~ : here resolve() and reject() are Promise's constructor methods and we just got them and using as our need
     // resolve() : brings promise obj in 'fullfilled' or 'resolved' state
     // reject() : changes state of promise as 'rejected()' 
 
@@ -17,7 +19,8 @@ promiseOne.then(function(){
 });
 
 
-// promise 2: other way of defining prom, without storing its reference
+// ----- "promise 2:" 
+// other way of defining prom, without storing its reference
 new Promise(function(resolve, reject){
     setTimeout(function(){
         console.log("Async task 2");
@@ -28,13 +31,13 @@ new Promise(function(resolve, reject){
 })
 
 
-// promise 3: eg. network se data aya
+// ----- "promise 3:" eg. network se data aya
 const promiseThree = new Promise(function(resolve, reject){
     setTimeout(function() {
         resolve({
             username: "chai",
             email: "chai@example.com"
-        })
+        }); // passing obj in resolve
     },1000);
 }
 );
@@ -45,27 +48,35 @@ promiseThree.then(function(user){
 
 
 
-// fourth promise
+// ----- "promise 4" : """``Promise chaining``"""
 const promiseFour = new Promise(function(resolve, reject){
     setTimeout(() => {
-        let error = true;
+        let error = false;
         if(!error){
-            resolve({username: "sarthak", password: "123"})
+            resolve({username: "sarthak 4th promise", password: "123"})
         }else{
             reject('Error: Something went wrong');
         }
     }, 1000);
 });
 
-// promiseFour.then((user)=>{});
+promiseFour.then((user)=>{
+    // console.log(user);
+    return user.username;  // let we mere want to return the username not whole user    
+                           // while solely printing it throws error and rejection 
+}).then((my_username)=>{
+    console.log("username is " + my_username);
+    // ye .then() is getting returned value from above .then()
+}).catch((err) => {console.log(err);
+}).finally( ()=> {} );
 
 
-// promise 5: aync await wala syntax
+// ----- "promise 5:" **aync await wala syntax**
 const promiseFive = new Promise(function(resolve, reject){
     setTimeout(() => {
         let error = false;
         if(!error){
-            resolve({username: "javascript", password: "123"})
+            resolve({username: "javascript 5th promise", password: "123"})
         }else{
             reject('Error: JS went wrong');
         }
@@ -93,7 +104,9 @@ consumePromiseFive();
 function someAPI() {
     let p1 = new Promise(function(resolve, reject){
     // yaha koi bhi longer duration ka task, jaise DB sebaat, payment ka gateway
-    // just adding a bit of 
+    // ~IMPORTANT~ : here resolve() and reject() are Promise's constructor methods and we just got them and using as our need
+    // resolve() : brings promise obj in 'fullfilled' or 'resolved' state
+    // reject() : changes state of promise as 'rejected()' 
 
     setTimeout(() => {
         const x = Math.round(Math.random() *10);
